@@ -17,6 +17,7 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'haml');
+app.set('view options', { layout: true });
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -34,8 +35,14 @@ if ('development' == app.get('env')) {
 //app.get('/', routes.index);
 app.get('/', function(req, res) {
 	res.render('index', {
-			sample: 'sample',
-			hoge: 'hoge'
+		layout: true,
+		sample: 'sample',
+		sites: [
+			{
+				'url': 'http://example.com',
+				'title': 'hoge'
+			}	
+		]
 	});
 });
 app.get('/users', user.list);

@@ -1,0 +1,36 @@
+%small
+  <!--= "load at : #{Time.now}"-->
+.row
+  .col-xs-8.col-lg-8
+    %div hoge
+      <!--
+      -@feeds.each do |feed|
+        %hr
+        %p
+          %a{:href => "#{feed.link}"}
+            %i.icon-home
+            = feed.title
+          %small
+            %i.icon-time
+            = feed.date.strftime('%m/%d %H:%M')
+        %a{:href => feed.article_link,:target => '_blank'} 
+          %h4
+            = feed.article_title
+        %blockquote
+          = feed.description
+          -->
+  .col-xs-4.col-lg-4
+    %h3
+      Sites
+      <!--
+    - @sites.each do |site|
+      %a{:href => "#{site['url']}", :target => "_blank"}
+        %i.icon-rss
+        = site['title']
+      %form{:method => "POST", :action => "/deletesite", :style => "display:inline;"}
+        %input{:type => "hidden", :name => "_method", :value => "DELETE"}
+        %input{:type => "hidden", :name => "url", :value => "#{site['url']}"}
+        %button.btn.btn-link.btn-xs{:type => "submit"}
+          %font{:color => "red"}
+            %i.icon-remove-sign.icon-large
+            -->

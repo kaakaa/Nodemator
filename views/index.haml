@@ -1,6 +1,16 @@
-.menu Menu
-%p= hoge
-%ul
-  %li
-    hogehoge
-
+.row
+  .col-xs-8.col-lg-8
+    hoge
+  .col-xs-4.col-lg-4
+    %h3
+      Sites
+    - each site in sites
+      %a{ href: site['url'], target: '_blank'}
+        %i.icon-rss
+        = site['title']
+      %form{method: "POST", action: "/deletesite", style: "display:inline;"}
+        %input{type: "hidden", name: "_method", value: "DELETE"}
+        %input{type: "hidden", name: "url", value: site['url']}
+        %button.btn.btn-link.btn-xs{type: "submit"}
+          %font{color: "red"}
+            %i.icon-remove-sign.icon-large

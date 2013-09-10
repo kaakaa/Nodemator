@@ -1,6 +1,30 @@
 !!! 5
 %html
-  %title
-    %title Express + Haml.js Sample
-    %body
-      != body
+	%head
+		%meta{charset: "utf-8"}
+		%meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+		%meta{name: "description", content: ""}
+		%meta{name: "author", content: ""}
+		%title
+			INFOMATOR
+		%link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
+		%link{href: "/css/font-awesome.min.css", rel: "stylesheet"}
+	%body
+		.navbar.navbar-inverse.navbar-fixed-top
+			.container-fluid
+			%a.navbar-brand{href: "/"}
+				INFOMATOR
+			%form.navbar-form.form-inline.pull-right{method: "post", action: "/addsite"}
+				%input{name: "url", type: "text", placeholder: "URL"}
+				%button.btn.btn-sm{type: "submit"}
+					add site
+		.container{style: "padding:60px 0"}
+			.body-content
+				!= body
+				%hr
+				%footer
+					%p
+		%script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"}
+		%script{src: "js/bootstrap.min.js"}
+
+
